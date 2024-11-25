@@ -18,7 +18,7 @@ int main(int argc, char** argv) {
 	
 	auto lab_cli_app = CLI::App{ "" };
 
-	auto number_epochs = std::uint32_t{ 10000 };
+	auto number_epochs = std::uint32_t{ 100000 };
 	auto output_image_width = std::uint32_t{800};
 	auto output_image_height = std::uint32_t{800};
 	auto output_path = std::filesystem::path{"simulation_results"};
@@ -99,6 +99,7 @@ int main(int argc, char** argv) {
 
 	// plot initial state of the universe
 	plotter.add_bodies_to_image(universe);
+
 	plotter.write_and_clear();
 
 	// save experiment before starting the simulation for reproducibility

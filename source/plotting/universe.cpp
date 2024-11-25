@@ -7,8 +7,10 @@ void Plotter::highlight_position(Vector2d<double> position, std::uint8_t red, st
     }
 
     // Convert position to pixel coordinates
-    uint32_t x = static_cast<uint32_t>((position[0] - plot_bounding_box.x_min) / (plot_bounding_box.x_max - plot_bounding_box.x_min) * plot_width);
-    uint32_t y = static_cast<uint32_t>((position[1] - plot_bounding_box.y_min) / (plot_bounding_box.y_max - plot_bounding_box.y_min) * plot_height);
+    uint32_t x = static_cast<uint32_t>((position[0] - plot_bounding_box.x_min) /
+                                       (plot_bounding_box.x_max - plot_bounding_box.x_min) * (plot_width - 1));
+    uint32_t y = static_cast<uint32_t>((position[1] - plot_bounding_box.y_min) /
+                                       (plot_bounding_box.y_max - plot_bounding_box.y_min) * (plot_height - 1));
 
     // Set horizontal and vertical lines (cross) centered at (x, y)
     for (int i = 0; i < plot_width; ++i) {
@@ -30,10 +32,15 @@ void Plotter::add_bodies_to_image(Universe& universe) {
         }
 
         // Convert body position to pixel coordinates
-        uint32_t x = static_cast<uint32_t>((position[0] - plot_bounding_box.x_min) / (plot_bounding_box.x_max - plot_bounding_box.x_min) * plot_width);
-        uint32_t y = static_cast<uint32_t>((position[1] - plot_bounding_box.y_min) / (plot_bounding_box.y_max - plot_bounding_box.y_min) * plot_height);
+        uint32_t x = static_cast<uint32_t>((position[0] - plot_bounding_box.x_min) / (plot_bounding_box.x_max - plot_bounding_box.x_min) * (plot_width - 1));
+        uint32_t y = static_cast<uint32_t>((position[1] - plot_bounding_box.y_min) / (plot_bounding_box.y_max - plot_bounding_box.y_min) * (plot_height - 1));
 
         // Mark the pixel at the body's position with white color (R: 255, G: 255, B: 255)
-        mark_pixel(x, y, 255, 255, 255);
+        if (i == 0) { 
+            highlight_position(position, 255, 0, 0);
+        }
+        else {
+            mark_pixel(x, y, 255, 255, 255);
+        }
     }
 }
