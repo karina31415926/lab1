@@ -17,9 +17,6 @@ public:
 
     // Default constructor initializes an empty universe at epoch 0
     Universe() : num_bodies(0), current_simulation_epoch(0) {}
-    std::uint32_t get_body_count() const {
-        return num_bodies;
-    }
 
     // Method to calculate and return the bounding box of all celestial bodies
     BoundingBox get_bounding_box() const;

@@ -57,7 +57,7 @@ void NaiveSequentialSimulation::calculate_velocities(Universe& universe)
 
 void NaiveSequentialSimulation::calculate_positions(Universe& universe) {
     // Loop over each body in the universe
-    for (std::uint32_t i = 0; i < universe.get_body_count(); ++i) {
+    for (std::uint32_t i = 0; i < universe.num_bodies; ++i) {
         // Calculate displacement: s = v * t
         Vector2d<double> displacement = universe.velocities[i] * epoch_in_seconds;
 

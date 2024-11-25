@@ -20,7 +20,7 @@ static void save_universe(const std::filesystem::path& save_universe_path, const
     universe_file << "### Positions" << std::endl;
     for (const auto& position : universe.positions) {
         // Access the components using the operator[]
-        universe_file << position[0] << " " << position[1] << std::endl; // position[0] is x, position[1] is y
+        universe_file << position[0] << " " << position[1] << std::endl;
     }
 
     // Write weights

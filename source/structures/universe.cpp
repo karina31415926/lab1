@@ -5,7 +5,7 @@
 // Calculate the smallest bounding box that contains all celestial bodies
 BoundingBox Universe::get_bounding_box() const {
     if (positions.empty()) {
-        throw std::runtime_error("No celestial bodies in the universe to calculate a bounding box.");
+        throw std::exception("No celestial bodies in the universe to calculate a bounding box.");
     }
 
     // Initialize min and max values to extreme values
