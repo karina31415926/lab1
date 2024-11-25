@@ -26,8 +26,10 @@ void Plotter::mark_pixel(std::uint32_t x, std::uint32_t y, std::uint8_t red, std
     // Check if the coordinates are within bounds
 
     if (x >= plot_width || y >= plot_height) {
-        throw std::exception("Pixel coordinates are out of bounds.");
+        throw std::out_of_range("Pixel coordinates are out of bounds.");
     }
+
+
 
     // Set the pixel in the bitmap image
     image.set_pixel(y, x, BitmapImage::BitmapPixel(red, green, blue));
