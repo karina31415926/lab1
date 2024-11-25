@@ -22,14 +22,14 @@ BoundingBox BoundingBox::get_quadrant(std::uint8_t quadrant_index) const {
     double y_mid = (y_min + y_max) / 2.0;
 
     switch (quadrant_index) {
-    case 0: // Bottom-left quadrant
-        return BoundingBox(x_min, x_mid, y_min, y_mid);
-    case 1: // Bottom-right quadrant
-        return BoundingBox(x_mid, x_max, y_min, y_mid);
-    case 2: // Top-left quadrant
+    case 0: // Top-left quadrant
         return BoundingBox(x_min, x_mid, y_mid, y_max);
-    case 3: // Top-right quadrant
+    case 1: // Top-right quadrant
         return BoundingBox(x_mid, x_max, y_mid, y_max);
+    case 2: // Bottom-left quadrant
+        return BoundingBox(x_min, x_mid, y_min, y_mid);
+    case 3: // Bottom-right quadrant
+        return BoundingBox(x_mid, x_max, y_min, y_mid);
     default:
         throw std::invalid_argument("Invalid quadrant index. Valid indices are 0, 1, 2, or 3.");
     }
