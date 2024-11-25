@@ -29,7 +29,7 @@ int main(int argc, char** argv) {
 	auto num_bodies = std::uint32_t{1000};
 	auto plot_intermediate_epochs = std::uint32_t{5};
 	auto plot_bounding_box_scale = std::uint32_t{5};
-	auto universe_generator = std::uint32_t{ 0 };
+	auto universe_generator = std::uint32_t{ 2 };
 	auto simulation_mode = std::uint32_t{0};
 
 	lab_cli_app.add_option("--output-image-width", output_image_width, "default: 800px");
