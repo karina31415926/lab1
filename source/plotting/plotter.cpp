@@ -1,6 +1,5 @@
 #include "plotting/plotter.h"
 #include "io/image_parser.h"
-#include <iostream>
 #include <exception>
 
 void Plotter::write_and_clear(){
@@ -12,8 +11,7 @@ void Plotter::write_and_clear(){
 
     std::string file_name = filename_prefix + "_" + serial_number_string + ".bmp";
     ImageParser::write_bitmap(output_folder_path / file_name, image);
-    std::cout << "Current image serial number: " << image_serial_number << std::endl;
-    std::cout << "Saving image to: " << filename_prefix + "_" + serial_number_string + ".bmp" << std::endl;
+
     clear_image();
     image_serial_number += 1;
 }
