@@ -30,6 +30,11 @@ target_include_directories(lab_lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 set_target_properties(lab_lib PROPERTIES ENABLE_EXPORTS 1)
 target_link_libraries(lab_lib PUBLIC project_options project_libraries)
 
+# Ensure compatibility with GCC versions < 9.0 for std::filesystem
+if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU" AND CMAKE_CXX_COMPILER_VERSION VERSION_LESS 9.0)
+  target_link_libraries(lab_lib PRIVATE stdc++fs)
+endif()
+
 FetchContent_Declare(
   cli11
   GIT_REPOSITORY https://github.com/CLIUtils/CLI11.git
